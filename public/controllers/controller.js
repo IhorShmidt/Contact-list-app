@@ -16,7 +16,7 @@ refresh();
 
 
 	
-$scope.addContact = function(){
+$scope.addContact = function() {
 	console.log($scope.contact);
 	$http.post('/contactlist', $scope.contact).success(function(response){
 		console.log(response);
@@ -24,7 +24,12 @@ $scope.addContact = function(){
 	});
 };
 
-
+$scope.remove = function(id) {
+	console.log(id);
+	$http.delete('/contactlist/' + id).success(function(response) {
+		refresh();
+	});
+};
 
 
 }
